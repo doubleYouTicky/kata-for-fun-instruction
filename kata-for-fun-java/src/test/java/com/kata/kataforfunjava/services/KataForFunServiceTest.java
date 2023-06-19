@@ -1,6 +1,5 @@
 package com.kata.kataforfunjava.services;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,13 +7,17 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class KataForFunServiceTest {
 
     @InjectMocks
     private KataForFunService kataForFunService;
+
+    @Test
+    void should_return_input_if_no_match() {
+        assertThat(kataForFunService.convertNumber(1)).isEqualTo("1");
+    }
 
     @Nested
     class ShouldReplaceNumberWithKata {
