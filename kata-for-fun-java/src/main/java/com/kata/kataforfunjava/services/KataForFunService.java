@@ -20,6 +20,10 @@ public class KataForFunService {
             if ('5' == c) {
                 result.append("For");
             }
+            if ('7' == c) {
+                result.append("Fun");
+            }
+
         }
         return result.toString();
     }
