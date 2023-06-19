@@ -62,6 +62,21 @@ class KataForFunServiceTest {
         }
     }
 
+    @Nested
+    class ShouldReplaceNumberWithKataFor {
+        @Test
+        void number_is_divisible_by_3_and_by_5() {
+            assertThat(kataForFunService.convertNumber(60)).isEqualTo("KataFor");
+        }
+
+        @Test
+        void number_is_divisible_by_3_and_by_5_and_contains_them() {
+            assertThat(kataForFunService.convertNumber(15)).isEqualTo("KataForFor");
+            assertThat(kataForFunService.convertNumber(30)).isEqualTo("KataForKata");
+            assertThat(kataForFunService.convertNumber(315)).isEqualTo("KataForKataFor");
+        }
+    }
+
 
 
     @Test
