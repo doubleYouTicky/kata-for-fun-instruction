@@ -1,6 +1,7 @@
 package com.kata.kataforfunjava.services;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,19 +16,22 @@ class KataForFunServiceTest {
     @InjectMocks
     private KataForFunService kataForFunService;
 
+    @Nested
+    class ShouldReplaceWithKata {
+        @Test
+        void should_replace_with_Kata_if_number_is_divisible_by_3() {
+            assertThat(kataForFunService.convertNumber(9)).isEqualTo("Kata");
+            assertThat(kataForFunService.convertNumber(6)).isEqualTo("Kata");
+            assertThat(kataForFunService.convertNumber(12)).isEqualTo("Kata");
+        }
 
-    @Test
-    void replace_3_by_kata_simple_case() {
-        assertThat(kataForFunService.convertNumber(3)).isEqualTo("KataKata");
-        assertThat(kataForFunService.convertNumber(9)).isEqualTo("Kata");
-        assertThat(kataForFunService.convertNumber(6)).isEqualTo("Kata");
+        @Test
+        void should_replace_with_Kata_if_number_contains_3() {
+            assertThat(kataForFunService.convertNumber(3)).isEqualTo("KataKata");
+            assertThat(kataForFunService.convertNumber(333)).isEqualTo("KataKataKataKata");
+        }
     }
 
-    @Test
-    void replace_3_by_kata_complex_cases() {
-        assertThat(kataForFunService.convertNumber(333)).isEqualTo("KataKataKataKata");
-        assertThat(kataForFunService.convertNumber(12)).isEqualTo("Kata");
-    }
 
 
     @Test
