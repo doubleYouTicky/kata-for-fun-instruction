@@ -3,4 +3,4 @@ kataforfun-back-java/*.iml
 kataforfun-back-java/target
 kataforfun-ui/node_modules
 kataforfun-ui/.idea
-/.idea/
+**/.idea/
