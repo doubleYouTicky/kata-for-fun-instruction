@@ -14,6 +14,13 @@ class KataForFunServiceTest {
 
     @InjectMocks
     private KataForFunService kataForFunService;
+
+
+    @Test
+    void replace_3_by_kata() {
+        assertThat(kataForFunService.convertNumber(3)).isEqualTo("Kata");
+    }
+
     @Test
     void convert_number_example_guides() {
         assertThat(kataForFunService.convertNumber(1)).isEqualTo("1");
