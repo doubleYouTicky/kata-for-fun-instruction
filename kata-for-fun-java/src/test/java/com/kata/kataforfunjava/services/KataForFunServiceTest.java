@@ -17,7 +17,7 @@ class KataForFunServiceTest {
     private KataForFunService kataForFunService;
 
     @Nested
-    class ShouldReplaceWithKata {
+    class ShouldReplaceNumberWithKata {
         @Test
         void should_replace_with_Kata_if_number_is_divisible_by_3() {
             assertThat(kataForFunService.convertNumber(9)).isEqualTo("Kata");
@@ -33,7 +33,7 @@ class KataForFunServiceTest {
     }
 
     @Nested
-    class ShouldReplaceWithFor {
+    class ShouldReplaceNumberWithFor {
         @Test
         void should_replace_with_For_if_number_is_divisible_by_5() {
             assertThat(kataForFunService.convertNumber(10)).isEqualTo("For");
@@ -44,6 +44,21 @@ class KataForFunServiceTest {
         void should_replace_with_For_if_number_contains_5() {
             assertThat(kataForFunService.convertNumber(5)).isEqualTo("ForFor");
             assertThat(kataForFunService.convertNumber(55)).isEqualTo("ForForFor");
+        }
+    }
+
+    @Nested
+    class ShouldReplaceNumberWithFun {
+        @Test
+        void should_not_replace_with_Fun_if_number_is_divisible_by_7() {
+            assertThat(kataForFunService.convertNumber(14)).isEmpty();
+            assertThat(kataForFunService.convertNumber(28)).isEmpty();
+        }
+
+        @Test
+        void should_replace_with_Fun_if_number_contains_7() {
+            assertThat(kataForFunService.convertNumber(7)).isEqualTo("Fun");
+            assertThat(kataForFunService.convertNumber(77)).isEqualTo("FunFun");
         }
     }
 
