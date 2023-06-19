@@ -12,25 +12,26 @@ import { FrontEndInstructionComponent } from './front-end-instruction/front-end-
 import { BackEndInstructionComponent } from './back-end-instruction/back-end-instruction.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    KataForFunFormComponent,
-    KataForFunComponent,
-    HomeComponent,
-    NavBarComponent,
-    FrontEndInstructionComponent,
-    BackEndInstructionComponent
-  ],
-  imports: [
-    BrowserModule, ReactiveFormsModule, HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent }
-    ])
-  ],
-  providers: [
-    { provide: 'SERVER_URL', useValue: 'http://localhost:8080' }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        KataForFunFormComponent,
+        KataForFunComponent,
+        HomeComponent,
+        NavBarComponent,
+        FrontEndInstructionComponent,
+        BackEndInstructionComponent
+    ],
+    imports: [
+        BrowserModule, ReactiveFormsModule, HttpClientModule,
+        RouterModule.forRoot([
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: 'home', component: HomeComponent },
+            { path: "kataForFun", component: KataForFunComponent },
+        ])
+    ],
+    providers: [
+        { provide: 'SERVER_URL', useValue: 'http://localhost:8080' }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
