@@ -1,24 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { KataForFunService } from '../kata-for-fun.service';
+import { take } from "rxjs/operators";
 
 @Component({
     selector: 'app-kata-for-fun',
     templateUrl: './kata-for-fun.component.html'
 })
-export class KataForFunComponent implements OnInit, OnDestroy {
+export class KataForFunComponent {
 
     constructor(private kataForFunService: KataForFunService) { }
 
-    ngOnInit(): void {
-    }
-
-    ngOnDestroy(): void {
-    }
-
     convertNumber(inputNumber: number): void {
-        const output = this.kataForFunService.converNumber(inputNumber);
-        console.log({ output });
+        const output = this.kataForFunService.convertNumber(inputNumber)
+            .pipe(take(1))
+            .subscribe(console.log);
     }
 
 }
