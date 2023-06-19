@@ -32,6 +32,21 @@ class KataForFunServiceTest {
         }
     }
 
+    @Nested
+    class ShouldReplaceWithFor {
+        @Test
+        void should_replace_with_For_if_number_is_divisible_by_5() {
+            assertThat(kataForFunService.convertNumber(10)).isEqualTo("For");
+            assertThat(kataForFunService.convertNumber(20)).isEqualTo("For");
+        }
+
+        @Test
+        void should_replace_with_For_if_number_contains_5() {
+            assertThat(kataForFunService.convertNumber(5)).isEqualTo("ForFor");
+            assertThat(kataForFunService.convertNumber(55)).isEqualTo("ForForFor");
+        }
+    }
+
 
 
     @Test
