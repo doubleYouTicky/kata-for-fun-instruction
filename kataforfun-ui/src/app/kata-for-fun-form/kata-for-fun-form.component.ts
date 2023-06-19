@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     templateUrl: './kata-for-fun-form.component.html'
 })
 export class KataForFunFormComponent {
-    submitNumberOutput: EventEmitter<number>;
+    @Output() submitNumberOutput = new EventEmitter<number>();
 
     numberForm: FormGroup;
 
