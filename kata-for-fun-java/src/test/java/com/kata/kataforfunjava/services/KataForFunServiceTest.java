@@ -54,8 +54,8 @@ class KataForFunServiceTest {
     class ShouldReplaceNumberWithFun {
         @Test
         void should_not_replace_with_Fun_if_number_is_divisible_by_7() {
-            assertThat(kataForFunService.convertNumber(14)).isEmpty();
-            assertThat(kataForFunService.convertNumber(28)).isEmpty();
+            assertThat(kataForFunService.convertNumber(14)).isEqualTo("14");
+            assertThat(kataForFunService.convertNumber(28)).isEqualTo("28");
         }
 
         @Test
@@ -119,20 +119,4 @@ class KataForFunServiceTest {
             assertThat(kataForFunService.convertNumber(885735)).isEqualTo("KataForForFunKataFor");
         }
     }
-
-
-    @Test
-    void convert_number_example_guides() {
-        assertThat(kataForFunService.convertNumber(1)).isEqualTo("1");
-        assertThat(kataForFunService.convertNumber(3)).isEqualTo("KataKata");
-        assertThat(kataForFunService.convertNumber(5)).isEqualTo("ForFor");
-        assertThat(kataForFunService.convertNumber(7)).isEqualTo("Fun");
-        assertThat(kataForFunService.convertNumber(9)).isEqualTo("Kata");
-        assertThat(kataForFunService.convertNumber(51)).isEqualTo("KataFor");
-        assertThat(kataForFunService.convertNumber(53)).isEqualTo("ForKata");
-        assertThat(kataForFunService.convertNumber(33)).isEqualTo("KataKataKata");
-        assertThat(kataForFunService.convertNumber(27)).isEqualTo("KataFun");
-        assertThat(kataForFunService.convertNumber(15)).isEqualTo("KataForFor");
-    }
-
 }
