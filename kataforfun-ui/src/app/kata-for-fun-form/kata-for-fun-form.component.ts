@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class KataForFunFormComponent {
     @Output() submitNumberOutput = new EventEmitter<number>();
+    @ViewChild('formElement') formElement: ElementRef;
 
     numberForm: FormGroup;
 
@@ -20,6 +21,15 @@ export class KataForFunFormComponent {
         if (this.numberForm.valid) {
             const numberToConvert = +this.numberForm.value.inputNumber;
             this.submitNumber(numberToConvert);
+
+            this.numberForm.reset();
+
+            Object.keys(this.numberForm.controls).forEach(key => {
+                this.numberForm.get(key).markAsUntouched();
+                this.numberForm.get(key).markAsPristine();
+            });
+
+            this.formElement.nativeElement.reset();
         }
     }
 
