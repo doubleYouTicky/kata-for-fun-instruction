@@ -91,6 +91,19 @@ class KataForFunServiceTest {
         }
     }
 
+    @Nested
+    class ShouldReplaceNumberWithForFun {
+        @Test
+        void number_is_divisible_by_5_and_by_7() {
+            assertThat(kataForFunService.convertNumber(140)).isEqualTo("For");
+        }
+
+        @Test
+        void number_is_divisible_by_5_and_contains_7_and_5() {
+            assertThat(kataForFunService.convertNumber(175)).isEqualTo("ForFunFor");
+        }
+    }
+
 
     @Test
     void convert_number_example_guides() {
