@@ -13,7 +13,8 @@ public class KataForFunService {
         if (inputNumber % 5 == 0) {
             result.append("For");
         }
-        for (char c: String.valueOf(inputNumber).toCharArray()) {
+        String intputAsString = String.valueOf(inputNumber);
+        for (char c: intputAsString.toCharArray()) {
             if ('3' == c) {
                 result.append("Kata");
             }
@@ -25,6 +26,6 @@ public class KataForFunService {
             }
 
         }
-        return result.toString();
+        return result.isEmpty() ? intputAsString : result.toString();
     }
 }
