@@ -10,9 +10,15 @@ public class KataForFunService {
         if (inputNumber % 3 == 0) {
             result.append("Kata");
         }
+        if (inputNumber % 5 == 0) {
+            result.append("For");
+        }
         for (char c: String.valueOf(inputNumber).toCharArray()) {
             if ('3' == c) {
                 result.append("Kata");
+            }
+            if ('5' == c) {
+                result.append("For");
             }
         }
         return result.toString();
