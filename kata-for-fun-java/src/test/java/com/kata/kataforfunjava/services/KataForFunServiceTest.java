@@ -104,6 +104,19 @@ class KataForFunServiceTest {
         }
     }
 
+    @Nested
+    class ShouldReplaceNumberWithKataForFun {
+        @Test
+        void number_is_divisible_by_5_and_7_and_3() {
+            assertThat(kataForFunService.convertNumber(105)).isEqualTo("KataForFor");
+        }
+
+        @Test
+        void number_is_divisible_by_5_and_3_and_contains_3_7_and_5() {
+            assertThat(kataForFunService.convertNumber(885735)).isEqualTo("KataForForFunKataFor");
+        }
+    }
+
 
     @Test
     void convert_number_example_guides() {
