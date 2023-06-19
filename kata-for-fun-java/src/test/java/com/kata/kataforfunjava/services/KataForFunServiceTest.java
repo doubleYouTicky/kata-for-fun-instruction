@@ -17,9 +17,18 @@ class KataForFunServiceTest {
 
 
     @Test
-    void replace_3_by_kata() {
-        assertThat(kataForFunService.convertNumber(3)).isEqualTo("Kata");
+    void replace_3_by_kata_simple_case() {
+        assertThat(kataForFunService.convertNumber(3)).isEqualTo("KataKata");
+        assertThat(kataForFunService.convertNumber(9)).isEqualTo("Kata");
+        assertThat(kataForFunService.convertNumber(6)).isEqualTo("Kata");
     }
+
+    @Test
+    void replace_3_by_kata_complex_cases() {
+        assertThat(kataForFunService.convertNumber(333)).isEqualTo("KataKataKataKata");
+        assertThat(kataForFunService.convertNumber(12)).isEqualTo("Kata");
+    }
+
 
     @Test
     void convert_number_example_guides() {
