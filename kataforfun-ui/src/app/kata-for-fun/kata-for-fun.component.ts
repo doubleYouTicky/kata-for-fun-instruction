@@ -17,7 +17,8 @@ export class KataForFunComponent implements OnInit, OnDestroy {
     }
 
     convertNumber(inputNumber: number): void {
-        console.log({ inputNumber });
+        const output = this.kataForFunService.converNumber(inputNumber);
+        console.log({ output });
     }
 
 }

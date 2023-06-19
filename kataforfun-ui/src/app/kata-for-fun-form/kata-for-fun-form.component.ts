@@ -21,16 +21,19 @@ export class KataForFunFormComponent {
         if (this.numberForm.valid) {
             const numberToConvert = +this.numberForm.value.inputNumber;
             this.submitNumber(numberToConvert);
-
-            this.numberForm.reset();
-
-            Object.keys(this.numberForm.controls).forEach(key => {
-                this.numberForm.get(key).markAsUntouched();
-                this.numberForm.get(key).markAsPristine();
-            });
-
-            this.formElement.nativeElement.reset();
+            this.resetForm();
         }
+    }
+
+    private resetForm() {
+        this.numberForm.reset();
+
+        Object.keys(this.numberForm.controls).forEach(key => {
+            this.numberForm.get(key).markAsUntouched();
+            this.numberForm.get(key).markAsPristine();
+        });
+
+        this.formElement.nativeElement.reset();
     }
 
     submitNumber(number: number) {
