@@ -20,5 +20,5 @@ public class KataForFunController {
         return new ResultDto(kataForFunService.convertNumber(inputNumber));
     }
 
-    record  ResultDto(String result){}
+    record ResultDto(String result){}
 }

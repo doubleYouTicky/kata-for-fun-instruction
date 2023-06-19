@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class KataForFunFormComponent {
     @Output() submitNumberOutput = new EventEmitter<number>();
     @ViewChild('formElement') formElement: ElementRef;
+    
 
     numberForm: FormGroup;
 

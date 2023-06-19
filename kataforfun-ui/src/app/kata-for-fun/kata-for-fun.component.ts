@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { KataForFunService } from '../kata-for-fun.service';
+import { ConvertedNumber, KataForFunService } from '../kata-for-fun.service';
 import { take } from "rxjs/operators";
 
 @Component({
@@ -7,13 +7,24 @@ import { take } from "rxjs/operators";
     templateUrl: './kata-for-fun.component.html'
 })
 export class KataForFunComponent {
+    public convertedResults: NumberConverted[];
+    private maxResults = 3;
 
-    constructor(private kataForFunService: KataForFunService) { }
+    constructor(private kataForFunService: KataForFunService) {
+        this.convertedResults = [];
+    }
 
     convertNumber(inputNumber: number): void {
-        const output = this.kataForFunService.convertNumber(inputNumber)
+        this.kataForFunService.convertNumber(inputNumber)
             .pipe(take(1))
-            .subscribe(console.log);
+            .subscribe(result => this.addConvertedResult(inputNumber, result.result));
+    }
+
+    private addConvertedResult(numberToConvert: number, result: string) {
+        if (this.convertedResults.length === this.maxResults) {
+            this.convertedResults.shift();
+        }
+        this.convertedResults.push({ numberToConvert, result });
     }
 
 }
