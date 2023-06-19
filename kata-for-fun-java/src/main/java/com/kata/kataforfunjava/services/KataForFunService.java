@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class KataForFunService {
     public String convertNumber( int inputNumber) {
-        return Strings.EMPTY;
+        String result = String.valueOf(inputNumber);
+        if (inputNumber % 3 == 0 || result.contains("3")) {
+            result = result.replace("3", "Kata");
+        }
+        return result;
     }
 }
