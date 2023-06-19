@@ -1,3 +1,13 @@
-<div class="container"> 
-    To Be Completed
+<div class="container">
+    <h2><strong>Number to convert</strong></h2>
+    <form [formGroup]="numberForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="inputNumber" placeholder="inputNumber" />
+            <div *ngIf="numberForm.controls.inputNumber.invalid && (numberForm.controls.inputNumber.dirty || numberForm.controls.inputNumber.touched)"
+                class="text-danger">
+                Please enter a valid number.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="numberForm.invalid">Convert</button>
+    </form>
 </div>
