@@ -77,6 +77,19 @@ class KataForFunServiceTest {
         }
     }
 
+    @Nested
+    class ShouldReplaceNumberWithKataFun {
+        @Test
+        void number_is_divisible_by_3_and_by_7() {
+            assertThat(kataForFunService.convertNumber(21)).isEqualTo("Kata");
+        }
+
+        @Test
+        void number_is_divisible_by_3_and_contains_7_and_3() {
+            assertThat(kataForFunService.convertNumber(729)).isEqualTo("KataFun");
+            assertThat(kataForFunService.convertNumber(14348907)).isEqualTo("KataKataFun");
+        }
+    }
 
 
     @Test
