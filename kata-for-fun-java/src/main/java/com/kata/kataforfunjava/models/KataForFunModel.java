@@ -3,16 +3,16 @@ package com.kata.kataforfunjava.models;
 import java.util.Optional;
 
 public class KataForFunModel {
-    public interface DivisiblePrimitive {
-        String getDivisibleResult(int inputNumber);
-
+    public interface NamedPrimitive {
         String getTypeName();
     }
 
-    public interface MatchablePrimitive {
-        boolean match(char c);
+    public interface DivisiblePrimitive extends NamedPrimitive {
+        String getDivisibleResult(int inputNumber);
+    }
 
-        String getTypeName();
+    public interface MatchablePrimitive extends NamedPrimitive {
+        boolean match(char c);
     }
 
     public abstract sealed static class Primitive implements MatchablePrimitive permits Primitive3, Primitive5, Primitive7 {

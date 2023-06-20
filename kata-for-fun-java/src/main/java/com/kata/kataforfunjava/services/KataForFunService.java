@@ -7,6 +7,7 @@ import java.util.List;
 
 import static com.kata.kataforfunjava.models.KataForFunModel.DivisiblePrimitive;
 import static com.kata.kataforfunjava.models.KataForFunModel.MatchablePrimitive;
+import static com.kata.kataforfunjava.models.KataForFunModel.NamedPrimitive;
 import static com.kata.kataforfunjava.models.KataForFunModel.Primitive3;
 import static com.kata.kataforfunjava.models.KataForFunModel.Primitive5;
 import static com.kata.kataforfunjava.models.KataForFunModel.Primitive7;
@@ -52,7 +53,7 @@ public class KataForFunService {
         for (char c : inputAsString.toCharArray()) {
             String matchResult = matchPrimitives.stream()
                     .filter(p -> p.match(c))
-                    .map(MatchablePrimitive::getTypeName)
+                    .map(NamedPrimitive::getTypeName)
                     .findFirst()
                     .orElse("");
             result.append(matchResult);
