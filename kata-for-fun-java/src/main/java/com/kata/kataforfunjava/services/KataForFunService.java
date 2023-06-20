@@ -1,41 +1,63 @@
 package com.kata.kataforfunjava.services;
 
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static com.kata.kataforfunjava.models.KataForFunModel.DivisiblePrimitive;
+import static com.kata.kataforfunjava.models.KataForFunModel.MatchablePrimitive;
+import static com.kata.kataforfunjava.models.KataForFunModel.NamedPrimitive;
+import static com.kata.kataforfunjava.models.KataForFunModel.Primitive3;
+import static com.kata.kataforfunjava.models.KataForFunModel.Primitive5;
+import static com.kata.kataforfunjava.models.KataForFunModel.Primitive7;
 
 @Service
 public class KataForFunService {
 
-    private static final String KATA = "Kata";
-    private static final String FOR = "For";
-    private static final String FUN = "Fun";
+    private final List<DivisiblePrimitive> divisiblePrimitives;
+    private final List<MatchablePrimitive> matchPrimitives;
+
+    public KataForFunService() {
+        divisiblePrimitives = Arrays.asList(
+                new Primitive3(),
+                new Primitive5()
+        );
+        matchPrimitives = Arrays.asList(
+                new Primitive3(),
+                new Primitive5(),
+                new Primitive7()
+        );
+    }
 
     public String convertNumber(int inputNumber) {
         StringBuilder result = new StringBuilder();
 
-        result.append(convertDivisibleInput(inputNumber, 3, KATA));
-        result.append(convertDivisibleInput(inputNumber, 5, FOR));
+        result.append(getDivisibleResults(inputNumber));
+        result.append(getMatchResults(inputNumber));
 
-        String intputAsString = String.valueOf(inputNumber);
-        for (char c: intputAsString.toCharArray()) {
-            result.append(convertFoundNumber(c));
-        }
-        return result.isEmpty() ? intputAsString : result.toString();
+        return result.isEmpty() ? String.valueOf(inputNumber) : result.toString();
     }
 
-    private String convertFoundNumber(char number) {
-        return switch (number) {
-            case '3' -> KATA;
-            case '5' -> FOR;
-            case '7' -> FUN;
-            default -> "";
-        };
+    private String getDivisibleResults(int inputNumber) {
+        StringBuilder result = new StringBuilder();
+        for (DivisiblePrimitive primitive : divisiblePrimitives) {
+            result.append(primitive.getDivisibleResult(inputNumber));
+        }
+        return result.toString();
     }
 
-    private String convertDivisibleInput(int inputNumber, int divider, String pushedString) {
-        if(inputNumber % divider == 0) {
-            return pushedString;
+    private String getMatchResults(int inputNumber) {
+        StringBuilder result = new StringBuilder();
+        String inputAsString = String.valueOf(inputNumber);
+        for (char c : inputAsString.toCharArray()) {
+            String matchResult = matchPrimitives.stream()
+                    .filter(p -> p.match(c))
+                    .map(NamedPrimitive::getTypeName)
+                    .findFirst()
+                    .orElse("");
+            result.append(matchResult);
         }
-        return Strings.EMPTY;
+        return result.toString();
     }
 }
