@@ -1,14 +1,15 @@
 package com.kata.kataforfunjava.services;
 
-import com.kata.kataforfunjava.models.KataForFunModel;
-import com.kata.kataforfunjava.models.KataForFunModel.DivisiblePrimitive;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.kata.kataforfunjava.models.KataForFunModel.*;
+import static com.kata.kataforfunjava.models.KataForFunModel.DivisiblePrimitive;
+import static com.kata.kataforfunjava.models.KataForFunModel.MatchablePrimitive;
+import static com.kata.kataforfunjava.models.KataForFunModel.Primitive3;
+import static com.kata.kataforfunjava.models.KataForFunModel.Primitive5;
+import static com.kata.kataforfunjava.models.KataForFunModel.Primitive7;
 
 @Service
 public class KataForFunService {
