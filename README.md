@@ -1,25 +1,9 @@
-### Pré-requis :
+### kata execution
 
-Les logiciels suivants doivent être installés sur votre machine :
-
-- [Node.js](https://nodejs.org/) et npm (au minimum node v 10.x et npm 5.x).
-- Maven 3
-- Java 8
-
-### Instructions :
-
-  - Télécharger l'ensemble du projet
-  - Démarrer la partie back dans gbsuftblai-back : 
-  ```bash
-  mvn spring-boot:run
-  ```
-  - Installer bootstrap si non installé dans gbsuftblai-ui : 
-  ```bash
-  npm install bootstrap@3 --save
-  ```
-  - Démarrer la partie front dans gbsuftblai-ui : 
-  ```bash
-  ng serve
-  ```
-  - Les instructions du kata se trouvent ensuite  [ici](http://localhost:4200/) 
-
+I used tags to represent the end of a series of changes related to a specific part of the project:
+- backend.v.1: I am generally able to learn a new programming language without spending too much time in its documentation;
+even obscure functional ones such as haskell; and I found kotlin special; it has way too many keywords. I will need
+to read its documentation carefully. Learning Rust was easier in comparison.
+- frontend.v.1: No tests has been made; I am one of those who think only end-to-end tests should be made to test the frontend;
+especially because end-to-end test frameworks provides better developer experience (cypress, playwright).
+- backend.v.2 : I was toying with java type system.
